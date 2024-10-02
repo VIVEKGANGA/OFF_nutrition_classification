@@ -1,0 +1,12 @@
+# Ignore log files
+*.log
+
+# Ignore all .DS_Store files (macOS)
+.DS_Store
+
+# Ignore all compiled Python files
+*.pyc
+
+# Ignore environment files
+.env
+

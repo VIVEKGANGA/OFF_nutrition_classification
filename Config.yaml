@@ -1,0 +1,46 @@
+seed:21
+task: 'single_label_classification'
+is_training: 'False'
+dataset:
+  dataset_name: 'foodfacts.csv'
+  data_dir: '.data'
+  image_dir: 'images'
+  output_dir: 'output_dir'
+  nutitional_image_columns: 'nutritional_image_url'
+  
+classification:
+  num_classes: 3
+  class_names: ['juice', 'cake', 'meat']
+  split_parameters:
+    split_method: 'stratified'
+    train_ratio: 0.8
+    validation_ratio: 0.1
+    test_ratio: 0.1
+    custom:
+      split_file = '.data/splits/custom_split.json'
+  model_training:
+    train_batch_size: 32
+    test_batch_size: 16
+    num_epochs: 10
+    learning_rate: 1e-4
+    model_output_dir: "model_artifacts"
+  
+entity_tagging:
+  num_labels: 3
+  label_names: ['O']
+
+Multimodal:
+  image_column: 'image_url'
+  image_size: 224
+  image_embedding_dim: 2048
+  use_text: True
+  text_column: 'product_name'
+  text_vocab_size: 20000
+  text_embedding_dim: 300
+  text_sequence_length: 128
+  fusion_method: 'concat'
+  fusion_output_size: 4096
+
+
+
+  
